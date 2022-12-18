@@ -1,0 +1,85 @@
+import java.util.Scanner;
+public class basicGradeCalc 
+{
+    public static void main(String[] args) 
+    {
+        // Creation of main method variables
+        int testScore1;
+        int testScore2;
+        int testScore3;
+        int testScore4;
+        int testScore5;
+
+        // Collecting user input
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Enter First Test Score: ");
+        testScore1 = userInput.nextInt();
+
+        System.out.print("Enter Second Test Score: ");
+        testScore2 = userInput.nextInt();
+
+        System.out.print("Enter Third Test Score: ");
+        testScore3 = userInput.nextInt();
+
+        System.out.print("Enter Fourth Test Score: ");
+        testScore4 = userInput.nextInt();
+
+        System.out.print("Enter Fifth Test Score ");
+        testScore5 = userInput.nextInt();
+        
+        System.out.println("Your Grades Are: ");
+        
+        // Create output statements with called methods
+        System.out.println("First Grade:  " + determineGrade(testScore1));
+        System.out.println("Second Grade: " + determineGrade(testScore2));
+        System.out.println("Third Grade:  " + determineGrade(testScore3));
+        System.out.println("Fourth Grade: " + determineGrade(testScore4));
+        System.out.println("Fifth Grade:  " + determineGrade(testScore5));
+        System.out.printf("Final Average: %.2f ", (calcAverage
+         (testScore1, testScore2, testScore3, testScore4, testScore5)));
+    }
+        /**
+         * This method is used to calculate the avergae of 5 given test scores.
+         * @param testScore1 First score given by user.
+         * @param testScore2 Second score given by user.
+         * @param testScore3 Third score given by user.
+         * @param testScore4 Fourth score given by user.
+         * @param testScore5 Fifth score given by user.
+         * @return The average score made by the calculations.
+         */
+    public static double calcAverage(int testScore1, int testScore2,
+                  int testScore3, int testScore4, int testScore5) 
+    {
+        // Create sum and average of 5 scores
+        int sum = (testScore1 + testScore2 + testScore3 + testScore4 
+                                                           + testScore5);
+        double averageScore = sum / 5.0;
+
+        return averageScore;
+    }
+        /**
+         * This method will determine a letter grade for a correlating test
+         * score received.
+         * @param score The score used to set set the letter grade.
+         * @return The letter grade determined by score.
+         */
+    public static char determineGrade(int score)
+    {
+        char letterGrade;
+
+        // Creation of if-else statement for letter grade assignment
+        if (score >= 90)
+            letterGrade = 'A';
+        else if (score >= 80)
+            letterGrade = 'B';
+        else if (score >= 70)
+            letterGrade = 'C';
+        else if (score >= 60)
+            letterGrade = 'D';
+        else
+            letterGrade = 'F';
+
+        return letterGrade;
+    }
+}
